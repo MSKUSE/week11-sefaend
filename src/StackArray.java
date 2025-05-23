@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.zip.ZipFile;
+
 public class StackArray implements Stack{
 
 
@@ -10,7 +12,11 @@ public class StackArray implements Stack{
         stack.add(0,item);
     }
     @Override
-    public Object pop() {
+    public Object pop() throws MyEmptyStackException {
+
+        if (this.isEmpty()){
+            throw new MyEmptyStackException("Stack is empty, you can not pop anything ");
+        }
         return stack.remove(0);
     }
     @Override
